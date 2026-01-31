@@ -165,6 +165,27 @@
         }
 
         /* Header */
+        .brand-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            line-height: 0.9;
+            color: var(--muted-cream);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            text-shadow: 3px 3px 18px rgba(0, 0, 0, 0.9);
+            opacity: 0.95;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .brand-title .highlight {
+            display: block;
+            color: var(--burnt-copper);
+            font-style: italic;
+            transform: skew(-3deg);
+            text-shadow: 2px 2px 15px rgba(139, 90, 60, 0.5);
+            opacity: 0.95;
+        }
+
         header {
             padding: 2rem 0;
             position: relative;
@@ -207,7 +228,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 8rem 0 10rem;
+            padding: 6rem 0 7rem;
             position: relative;
         }
 
@@ -701,7 +722,7 @@
       
 
         <header>
-            <div class="logo">Supernatural<br>Frequency</div>
+            <div class="brand-title">Supernatural<span class="highlight">Frequency</span></div>
             <div class="tagline">Funk • Cosmic Grooves • Analog Soul</div>
             <nav class="main-nav">
                 <a href="index.html">Home</a>
@@ -718,11 +739,6 @@
                     Supernatural
                     <span class="highlight">Frequency</span>
                 </h1>
-                <p>
-                    Funk artist exploring the cosmic intersection of vintage soul and modern soundscapes. 
-                    Where analog warmth meets otherworldly grooves.
-                </p>
-                <a href="#music" class="cta-button">Listen Now</a>
             </div>
         </section>
 
