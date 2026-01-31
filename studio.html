@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Sessions | Supernatural Frequency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --space-black: #0a0a0a;
+            --deep-void: #161616;
+            --moon-dust: #c9b8a0;
+            --burnt-copper: #8b5a3c;
+            --dark-gold: #a67c52;
+            --cosmic-teal: #2d5f5d;
+            --blood-red: #8b2e2e;
+            --muted-cream: #d4c4b0;
+            --grain-overlay: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.08"/></svg>');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--space-black);
+            color: var(--moon-dust);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--grain-overlay);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.8;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--dark-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            opacity: 0.9;
+        }
+
+        .logo a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .main-nav {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .main-nav a {
+            color: var(--burnt-copper);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--dark-gold);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            opacity: 1;
+            color: var(--dark-gold);
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .page-header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--muted-cream);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .page-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--moon-dust);
+            opacity: 0.85;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.9;
+        }
+
+        .pricing-box {
+            background: linear-gradient(135deg, rgba(22, 22, 22, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+            padding: 2.5rem;
+            border: 1px solid rgba(139, 90, 60, 0.3);
+            backdrop-filter: blur(10px);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .pricing-box h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.8rem;
+            color: var(--dark-gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--burnt-copper);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .availability-note {
+            color: var(--moon-dust);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .booking-form {
+            background: linear-gradient(135deg, rgba(22, 22, 22, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+            padding: 3rem;
+            border: 1px solid rgba(139, 90, 60, 0.3);
+            backdrop-filter: blur(10px);
+            margin: 4rem 0;
+        }
+
+        .form-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--dark-gold);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            color: var(--burnt-copper);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 10, 10, 0.5);
+            border: 1px solid rgba(139, 90, 60, 0.3);
+            color: var(--moon-dust);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--burnt-copper);
+            background: rgba(10, 10, 10, 0.8);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: transparent;
+            color: var(--dark-gold);
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            border: 2px solid var(--burnt-copper);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--burnt-copper);
+            color: var(--space-black);
+            box-shadow: 0 6px 30px rgba(139, 90, 60, 0.4);
+        }
+
+        .helper-text {
+            font-size: 0.85rem;
+            color: var(--burnt-copper);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(139, 90, 60, 0.2);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--moon-dust);
+            opacity: 0.5;
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"><a href="index.html">Supernatural Frequency</a></div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="beats.html">Beats</a>
+                <a href="mixing-mastering.html">Mixing/Mastering</a>
+                <a href="songwriting.html">Songwriting</a>
+                <a href="studio.html" class="active">Studio</a>
+            </nav>
+        </header>
+
+        <section class="page-header">
+            <h1 class="page-title">Studio Sessions</h1>
+            <p class="page-subtitle">
+                Full production in an atmosphere designed for creativity and cosmic exploration. 
+                Professional recording from pre to post-production.
+            </p>
+        </section>
+
+        <section class="pricing-section">
+            <div class="pricing-box">
+                <h3>Hourly Rate</h3>
+                <div class="price">$20/hr</div>
+                <p class="availability-note">Available Tuesday, Thursday, Saturday & Sunday</p>
+            </div>
+
+            <div class="booking-form">
+                <h2 class="form-title">Book a Session</h2>
+                <form action="mailto:ivanreyes@rxnmedia.com" method="POST" enctype="text/plain" id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name / Artist Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Session Duration</label>
+                        <select id="duration" name="duration" required>
+                            <option value="">Select duration...</option>
+                            <option value="1">1 Hour ($20)</option>
+                            <option value="2">2 Hours ($40)</option>
+                            <option value="3">3 Hours ($60)</option>
+                            <option value="4">4 Hours ($80)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="day">Preferred Day</label>
+                        <select id="day" name="day" required disabled>
+                            <option value="">Select duration first...</option>
+                        </select>
+                        <p class="helper-text" id="day-helper">Choose a duration to see available days</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Start Time</label>
+                        <select id="time" name="time" required disabled>
+                            <option value="">Select day first...</option>
+                        </select>
+                        <p class="helper-text" id="time-helper">Choose a day to see available times</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-type">Project Type</label>
+                        <input type="text" id="project-type" name="project-type" placeholder="e.g., Recording vocals, Full band session" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additional">Additional Notes</label>
+                        <textarea id="additional" name="additional" placeholder="Any specific needs or equipment requests..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Booking Request</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Supernatural Frequency. All rights reserved. | Bringing the funk since 1992</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smart booking system
+        const durationSelect = document.getElementById('duration');
+        const daySelect = document.getElementById('day');
+        const timeSelect = document.getElementById('time');
+        const dayHelper = document.getElementById('day-helper');
+        const timeHelper = document.getElementById('time-helper');
+
+        const availableDays = [
+            { value: 'tuesday', label: 'Tuesday', hours: { start: 19, end: 21 } },  // 7pm-9pm
+            { value: 'thursday', label: 'Thursday', hours: { start: 19, end: 21 } },  // 7pm-9pm
+            { value: 'saturday', label: 'Saturday', hours: { start: 11, end: 21 } },  // 11am-9pm
+            { value: 'sunday', label: 'Sunday', hours: { start: 11, end: 21 } }      // 11am-9pm
+        ];
+
+        // When duration is selected
+        durationSelect.addEventListener('change', function() {
+            const duration = parseInt(this.value);
+            if (!duration) return;
+
+            // Enable day select
+            daySelect.disabled = false;
+            daySelect.innerHTML = '<option value="">Select a day...</option>';
+
+            // Add available days
+            availableDays.forEach(day => {
+                daySelect.innerHTML += `<option value="${day.value}">${day.label}</option>`;
+            });
+
+            dayHelper.textContent = 'Select your preferred day';
+            
+            // Reset time select
+            timeSelect.disabled = true;
+            timeSelect.innerHTML = '<option value="">Select day first...</option>';
+        });
+
+        // When day is selected
+        daySelect.addEventListener('change', function() {
+            const duration = parseInt(durationSelect.value);
+            const selectedDay = this.value;
+            
+            if (!duration || !selectedDay) return;
+
+            const day = availableDays.find(d => d.value === selectedDay);
+            if (!day) return;
+
+            // Calculate available time slots
+            const availableTimes = [];
+            for (let hour = day.hours.start; hour <= day.hours.end - duration; hour++) {
+                const timeLabel = formatTime(hour);
+                const endTime = formatTime(hour + duration);
+                availableTimes.push({
+                    value: timeLabel,
+                    label: `${timeLabel} - ${endTime}`
+                });
+            }
+
+            // Populate time select
+            timeSelect.disabled = false;
+            timeSelect.innerHTML = '<option value="">Select start time...</option>';
+            
+            if (availableTimes.length === 0) {
+                timeSelect.innerHTML = '<option value="">No available times for this duration</option>';
+                timeHelper.textContent = `${duration} hour session not available on ${day.label}`;
+                timeSelect.disabled = true;
+            } else {
+                availableTimes.forEach(time => {
+                    timeSelect.innerHTML += `<option value="${time.value}">${time.label}</option>`;
+                });
+                timeHelper.textContent = 'Select your start time';
+            }
+        });
+
+        // Format hour to AM/PM
+        function formatTime(hour) {
+            if (hour === 12) return '12pm';
+            if (hour < 12) return hour + 'am';
+            return (hour - 12) + 'pm';
+        }
+    </script>
+</body>
+</html>
