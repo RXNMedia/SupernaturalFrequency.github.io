@@ -713,6 +713,29 @@
             opacity: 1;
             transform: translateY(0);
         }
+    
+        /* Spotify Embed */
+        .spotify-embed {
+            max-width: 900px;
+            margin: 5rem auto 4rem;
+            padding: 0.75rem;
+            background: rgba(22, 22, 22, 0.55);
+            border: 1px solid rgba(139, 90, 60, 0.25);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .spotify-embed {
+                margin: 3.5rem auto 3rem;
+                padding: 0.5rem;
+            }
+
+            .spotify-embed iframe {
+                height: 300px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -742,19 +765,17 @@
             </div>
         </section>
 
-        <div class="visualizer">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="spotify-embed fade-in">
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/artist/1Nczxk8LIogZLxNYb9edKp?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
         </div>
 
         <section id="music" class="music-section">
