@@ -34,6 +34,7 @@
             line-height: 1.6;
         }
 
+        /* Film grain overlay - on top */
         body::before {
             content: '';
             position: fixed;
@@ -43,18 +44,69 @@
             height: 100%;
             background: var(--grain-overlay);
             pointer-events: none;
-            z-index: 9999;
+            z-index: 3;
             opacity: 0.2;
         }
 
-        /* Cinematic vignette effect */
-       body::after {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.6) 100%
-  );
-}
+        /* Cinematic vignette effect - middle */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0,0,0,0.15) 0%,
+                rgba(0,0,0,0.6) 100%
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* ===== Analog Film Grain Background Video ===== */
+        .bg-film {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-film video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1.00;
+            filter:
+                contrast(1.15)
+                brightness(0.95)
+                saturate(0);
+            transform: scale(1.05);
+        }
+
+        .bg-film::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(0,0,0,0.25) 0%,
+                    rgba(0,0,0,0.85) 70%
+                ),
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.6),
+                    rgba(0,0,0,0.75)
+                );
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bg-film video { display: none; }
+        }
 
         /* Lunar Orb Background */
         .vinyl-bg {
@@ -82,7 +134,7 @@
 
         .container {
             position: relative;
-            z-index: 1;
+            z-index: 10;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
@@ -581,11 +633,21 @@
             font-weight: 300;
         }
 
+        /* Spotify Embed */
+        .spotify-embed {
+            max-width: 900px;
+            margin: 5rem auto 4rem;
+            padding: 0.75rem;
+            background: rgba(22, 22, 22, 0.55);
+            border: 1px solid rgba(139, 90, 60, 0.25);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container { padding: 0 1.25rem; }
 
-            /* Keep the orb subtle on phones */
             .vinyl-bg {
                 width: 110vw;
                 height: 110vw;
@@ -595,7 +657,6 @@
                 opacity: 0.28;
             }
 
-            /* Tighten header + improve readability */
             header {
                 padding: 1.25rem 0 0.75rem;
                 text-align: left;
@@ -608,7 +669,6 @@
                 margin-top: 0.4rem;
             }
 
-            /* Nav: compact + better tap targets */
             .main-nav {
                 margin-top: 1.25rem;
                 gap: 1rem;
@@ -620,7 +680,6 @@
                 padding: 0.4rem 0;
             }
 
-            /* Hero spacing */
             .hero { padding: 3.5rem 0 4.5rem; }
 
             .hero h1 { margin-bottom: 1.5rem; }
@@ -636,7 +695,6 @@
                 padding: 1rem 1.25rem;
             }
 
-            /* Sections */
             .music-section,
             .services,
             .contact { padding: 4rem 0; }
@@ -658,13 +716,20 @@
             }
 
             .bar { width: 8px; }
+
+            .spotify-embed {
+                margin: 3.5rem auto 3rem;
+                padding: 0.5rem;
+            }
+
+            .spotify-embed iframe {
+                height: 300px;
+            }
         }
 
-        /* Extra small screens */
         @media (max-width: 480px) {
             .hero h1 { font-size: 3.1rem; }
 
-            /* Allow horizontal scroll instead of ugly wraps */
             .main-nav {
                 justify-content: flex-start;
                 overflow-x: auto;
@@ -674,28 +739,6 @@
 
             .main-nav::-webkit-scrollbar { display: none; }
             .main-nav { -ms-overflow-style: none; scrollbar-width: none; }
-        }
-
-
-        .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .visualizer {
-                height: 100px;
-            }
-
-            .bar {
-                width: 8px;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .nav-links a {
-                font-size: 0.75rem;
-            }
         }
 
         /* Scroll animations */
@@ -709,78 +752,11 @@
             opacity: 1;
             transform: translateY(0);
         }
-    
-        /* Spotify Embed */
-        .spotify-embed {
-            max-width: 900px;
-            margin: 5rem auto 4rem;
-            padding: 0.75rem;
-            background: rgba(22, 22, 22, 0.55);
-            border: 1px solid rgba(139, 90, 60, 0.25);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        @media (max-width: 768px) {
-            .spotify-embed {
-                margin: 3.5rem auto 3rem;
-                padding: 0.5rem;
-            }
-
-            .spotify-embed iframe {
-                height: 300px;
-            }
-        }
-
-    
-        /* ===== Analog Film Grain Background ===== */
-      .bg-film {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-       .bg-film video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1.00; /* key number */
-  filter:
-    contrast(1.15)
-    brightness(0.95)
-    saturate(0);
-  transform: scale(1.05);
-}
-
-        .bg-film::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    ellipse at center,
-                    rgba(0,0,0,0.25) 0%,
-                    rgba(0,0,0,0.85) 70%
-                ),
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0.6),
-                    rgba(0,0,0,0.75)
-                );
-            pointer-events: none;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .bg-film video { display: none; }
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- Analog Film Grain Background -->
+    <!-- Analog Film Grain Background Video -->
     <div class="bg-film" aria-hidden="true">
         <video autoplay muted loop playsinline preload="metadata">
             <source src="media/film-grain.mp4" type="video/mp4">
@@ -790,8 +766,6 @@
     <div class="vinyl-bg"></div>
 
     <div class="container">
-      
-
         <header>
             <div class="brand-title">Supernatural<span class="highlight">Frequency</span></div>
             <div class="tagline">Funk • Cosmic Grooves • Analog Soul</div>
@@ -810,36 +784,33 @@
                     <span class="highlight">Frequency</span>
                 </h1>
 
-<div class="music-description fade-in">
-                <p>
-                    Supernatural Frequency exists in the space between decades—where dusty vinyl crackle meets pristine digital clarity. 
-                    Funk rhythms pulse through synthesized atmospheres, creating a sonic landscape that feels both nostalgic and alien.
-                </p>
-                <p>
-                    Each track is a transmission from a parallel timeline where James Brown discovered a Moog in a lunar crater, 
-                    where Parliament-Funkadelic scored science fiction films that never existed.
-                </p>
-            </div>
+                <div class="music-description fade-in">
+                    <p>
+                        Supernatural Frequency exists in the space between decades—where dusty vinyl crackle meets pristine digital clarity. 
+                        Funk rhythms pulse through synthesized atmospheres, creating a sonic landscape that feels both nostalgic and alien.
+                    </p>
+                    <p>
+                        Each track is a transmission from a parallel timeline where James Brown discovered a Moog in a lunar crater, 
+                        where Parliament-Funkadelic scored science fiction films that never existed.
+                    </p>
+                </div>
 
-        <div class="spotify-embed fade-in">
-          <iframe
-            data-testid="embed-iframe"
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/artist/1Nczxk8LIogZLxNYb9edKp?utm_source=generator&theme=0"
-            width="100%"
-            height="352"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
-        </div>
+                <div class="spotify-embed fade-in">
+                    <iframe
+                        data-testid="embed-iframe"
+                        style="border-radius:12px"
+                        src="https://open.spotify.com/embed/artist/1Nczxk8LIogZLxNYb9edKp?utm_source=generator&theme=0"
+                        width="100%"
+                        height="352"
+                        frameborder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </section>
 
-
         <section id="music" class="music-section">
-                        
-            
             <div class="music-links fade-in">
                 <a href="https://open.spotify.com/artist/1Nczxk8LIogZLxNYb9edKp" target="_blank" class="music-link">Spotify</a>
                 <a href="https://music.apple.com/us/artist/supernatural-frequency/1502204967" target="_blank" class="music-link">Apple Music</a>
