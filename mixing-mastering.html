@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <style>
         :root {
             --space-black: #0a0a0a;
@@ -329,6 +330,72 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Audio Player Section */
+        .audio-showcase {
+            padding: 4rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .showcase-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--dark-gold);
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        .audio-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .audio-player-wrapper {
+            background: linear-gradient(135deg, rgba(22, 22, 22, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+            padding: 2rem;
+            border: 1px solid rgba(139, 90, 60, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .audio-player-wrapper:hover {
+            border-color: rgba(139, 90, 60, 0.6);
+            box-shadow: 0 10px 40px rgba(139, 90, 60, 0.15);
+        }
+
+        .audio-label {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.2rem;
+            color: var(--burnt-copper);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+
+        /* Plyr customization */
+        .plyr {
+            --plyr-color-main: #a67c52;
+        }
+
+        .plyr--audio .plyr__controls {
+            background: rgba(10, 10, 10, 0.5);
+            border: 1px solid rgba(139, 90, 60, 0.2);
+            color: var(--moon-dust);
+        }
+
+        .plyr__control--overlaid {
+            background: var(--burnt-copper);
+        }
+
+        .plyr__control:hover {
+            background: var(--dark-gold);
+        }
     </style>
 </head>
 <body>
@@ -352,11 +419,33 @@
             </p>
         </section>
 
+        <!-- Before/After Audio Showcase -->
+        <section class="audio-showcase">
+            <h2 class="showcase-title">Hear The Difference</h2>
+            <div class="audio-comparison">
+                <div class="audio-player-wrapper">
+                    <h3 class="audio-label">Before Mix</h3>
+                    <audio id="before-player" controls>
+                        <source src="audio/before-mix.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                
+                <div class="audio-player-wrapper">
+                    <h3 class="audio-label">After Mix</h3>
+                    <audio id="after-player" controls>
+                        <source src="audio/after-mix.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </section>
+
         <section class="pricing-section">
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Mixing</h3>
-                    <div class="price">$75</div>
+                    <div class="price">$100</div>
                     <p class="note">+$50 for tracks with more than 50 stems</p>
                     <ul>
                         <li>Professional mixing</li>
@@ -400,7 +489,7 @@
                         <label for="service">Service</label>
                         <select id="service" name="Service" required>
                             <option value="">Select service...</option>
-                            <option value="mixing">Mixing ($75)</option>
+                            <option value="mixing">Mixing ($100)</option>
                             <option value="mastering">Mastering - Album ($250)</option>
                             <option value="both">Both (Mixing + Mastering)</option>
                         </select>
@@ -438,8 +527,21 @@
         </section>
 
         <footer>
-            <p>&copy; 2026 Supernatural Frequency. All rights reserved. | Bringing the funk since 1992</p>
+            <p>&copy; 2024 Supernatural Frequency. All rights reserved. | Bringing the funk since 1992</p>
         </footer>
     </div>
+
+    <!-- Plyr Audio Player Script -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        // Initialize Plyr players
+        const beforePlayer = new Plyr('#before-player', {
+            controls: ['play', 'progress', 'current-time', 'mute', 'volume']
+        });
+        
+        const afterPlayer = new Plyr('#after-player', {
+            controls: ['play', 'progress', 'current-time', 'mute', 'volume']
+        });
+    </script>
 </body>
 </html>
