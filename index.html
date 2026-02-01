@@ -34,7 +34,7 @@
             line-height: 1.6;
         }
 
-        /* Film grain overlay - on top */
+        /* Film grain overlay - on top, much lighter */
         body::before {
             content: '';
             position: fixed;
@@ -45,10 +45,10 @@
             background: var(--grain-overlay);
             pointer-events: none;
             z-index: 3;
-            opacity: 0.2;
+            opacity: 0.05;
         }
 
-        /* Cinematic vignette effect - middle */
+        /* Cinematic vignette effect - middle, much lighter */
         body::after {
             content: '';
             position: fixed;
@@ -58,8 +58,8 @@
             height: 100%;
             background: radial-gradient(
                 ellipse at center,
-                rgba(0,0,0,0.15) 0%,
-                rgba(0,0,0,0.6) 100%
+                rgba(0,0,0,0.0) 0%,
+                rgba(0,0,0,0.3) 100%
             );
             pointer-events: none;
             z-index: 2;
@@ -78,29 +78,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 1.00;
-            filter:
-                contrast(1.15)
-                brightness(0.95)
-                saturate(0);
-            transform: scale(1.05);
+            opacity: 0.8;
+            filter: none;
+            transform: scale(1.0);
         }
 
         .bg-film::after {
             content: "";
             position: absolute;
             inset: 0;
-            background:
-                radial-gradient(
-                    ellipse at center,
-                    rgba(0,0,0,0.25) 0%,
-                    rgba(0,0,0,0.85) 70%
-                ),
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0.6),
-                    rgba(0,0,0,0.75)
-                );
+            background: rgba(0,0,0,0.2);
             pointer-events: none;
         }
 
@@ -108,7 +95,7 @@
             .bg-film video { display: none; }
         }
 
-        /* Lunar Orb Background */
+        /* Lunar Orb Background - much lighter */
         .vinyl-bg {
             position: fixed;
             top: -15%;
@@ -119,9 +106,9 @@
             max-height: 700px;
             border-radius: 50%;
             background: 
-                radial-gradient(circle at 30% 30%, rgba(166, 124, 82, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(45, 95, 93, 0.1) 0%, transparent 70%);
-            opacity: 0.4;
+                radial-gradient(circle at 30% 30%, rgba(166, 124, 82, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(45, 95, 93, 0.05) 0%, transparent 70%);
+            opacity: 0.3;
             animation: float 30s ease-in-out infinite;
             z-index: 0;
             filter: blur(80px);
