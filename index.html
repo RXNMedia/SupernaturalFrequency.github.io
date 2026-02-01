@@ -127,37 +127,6 @@
             padding: 0 2rem;
         }
 
-        /* Navigation */
-        nav {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(139, 90, 60, 0.15);
-            margin-bottom: 1rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--burnt-copper);
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 300;
-            transition: all 0.3s ease;
-            opacity: 0.7;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--dark-gold);
-            opacity: 1;
-        }
-
         /* Main Navigation */
         .main-nav {
             margin-top: 2rem;
@@ -227,18 +196,6 @@
             z-index: 10;
         }
 
-        .logo {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            color: var(--dark-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            line-height: 1.1;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-            animation: fadeInDown 1s ease-out;
-            opacity: 0.9;
-        }
-
         .tagline {
             font-size: clamp(0.75rem, 1.5vw, 0.9rem);
             color: var(--burnt-copper);
@@ -269,109 +226,6 @@
 
         .hero-content {
             max-width: 900px;
-        }
-
-        .hero h1 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(3.5rem, 11vw, 8rem);
-            line-height: 0.9;
-            color: var(--muted-cream);
-            margin-bottom: 2.5rem;
-            text-transform: uppercase;
-            animation: slideInLeft 1.2s ease-out 0.4s backwards;
-            letter-spacing: -0.02em;
-            text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.9);
-        }
-
-        .hero h1 .highlight {
-            display: block;
-            color: var(--burnt-copper);
-            font-style: italic;
-            transform: skew(-3deg);
-            text-shadow: 2px 2px 15px rgba(139, 90, 60, 0.5);
-            opacity: 0.95;
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            line-height: 1.9;
-            color: var(--moon-dust);
-            margin-bottom: 3.5rem;
-            max-width: 650px;
-            animation: slideInLeft 1.2s ease-out 0.6s backwards;
-            opacity: 0.85;
-            font-weight: 300;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: transparent;
-            color: var(--dark-gold);
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.2em;
-            border: 2px solid var(--burnt-copper);
-            box-shadow: 0 4px 20px rgba(139, 90, 60, 0.2);
-            transition: all 0.4s ease;
-            animation: slideInLeft 1.2s ease-out 0.8s backwards;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--burnt-copper);
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-
-        .cta-button:hover::before {
-            left: 0;
-        }
-
-        .cta-button:hover {
-            color: var(--space-black);
-            box-shadow: 0 6px 30px rgba(139, 90, 60, 0.4);
-        }
-
-        /* Services Grid */
-        .music-section {
-            padding: 6rem 0;
-            position: relative;
-            text-align: center;
-        }
-
-        .music-description {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-
-        .music-description p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            line-height: 2;
-            color: var(--moon-dust);
-            margin-bottom: 1.5rem;
-            opacity: 0.85;
-            font-weight: 300;
         }
 
         .music-links {
@@ -418,146 +272,29 @@
             border-color: var(--burnt-copper);
         }
 
-        .services {
-            padding: 6rem 0;
-            position: relative;
+        .music-description {
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
 
-        .section-title {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--burnt-copper);
-            text-transform: uppercase;
-            margin-bottom: 4rem;
-            text-align: center;
-            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
-            opacity: 0.85;
-            letter-spacing: 0.05em;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, rgba(22, 22, 22, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
-            padding: 2rem;
-            border: 1px solid rgba(139, 90, 60, 0.3);
-            position: relative;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(166, 124, 82, 0.1) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 90, 60, 0.6);
-            box-shadow: 0 10px 40px rgba(139, 90, 60, 0.15);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            opacity: 0.7;
-        }
-
-        .service-card h3 {
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 1.5rem;
-            color: var(--dark-gold);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .service-card p {
+        .music-description p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 2;
             color: var(--moon-dust);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
             font-weight: 300;
         }
 
-        .service-card a {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.7rem 1.5rem;
-            background: transparent;
-            color: var(--burnt-copper);
-            font-family: 'Archivo Black', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.15em;
-            border: 1px solid rgba(139, 90, 60, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .service-card a:hover {
-            background: rgba(139, 90, 60, 0.2);
-            border-color: var(--burnt-copper);
-            color: var(--dark-gold);
-        }
-
-        /* Frequency Visualizer */
-        .visualizer {
-            height: 120px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            gap: 6px;
-            margin: 6rem 0;
-            padding: 2rem;
-            background: rgba(22, 22, 22, 0.5);
-            border: 1px solid rgba(139, 90, 60, 0.2);
-            border-radius: 2px;
+        /* Spotify Embed */
+        .spotify-embed {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 0.75rem;
+            background: rgba(22, 22, 22, 0.55);
+            border: 1px solid rgba(139, 90, 60, 0.25);
             backdrop-filter: blur(10px);
-        }
-
-        .bar {
-            width: 8px;
-            background: linear-gradient(to top, var(--burnt-copper), var(--dark-gold));
-            animation: pulse 2s ease-in-out infinite;
-            border-radius: 1px 1px 0 0;
-            opacity: 0.6;
-        }
-
-        .bar:nth-child(1) { height: 30%; animation-delay: 0s; }
-        .bar:nth-child(2) { height: 60%; animation-delay: 0.15s; }
-        .bar:nth-child(3) { height: 80%; animation-delay: 0.3s; }
-        .bar:nth-child(4) { height: 50%; animation-delay: 0.45s; }
-        .bar:nth-child(5) { height: 75%; animation-delay: 0.6s; }
-        .bar:nth-child(6) { height: 85%; animation-delay: 0.75s; }
-        .bar:nth-child(7) { height: 65%; animation-delay: 0.9s; }
-        .bar:nth-child(8) { height: 40%; animation-delay: 1.05s; }
-        .bar:nth-child(9) { height: 70%; animation-delay: 1.2s; }
-        .bar:nth-child(10) { height: 55%; animation-delay: 1.35s; }
-        .bar:nth-child(11) { height: 35%; animation-delay: 1.5s; }
-        .bar:nth-child(12) { height: 60%; animation-delay: 1.65s; }
-
-        @keyframes pulse {
-            0%, 100% { transform: scaleY(0.7); opacity: 0.4; }
-            50% { transform: scaleY(1); opacity: 0.8; }
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
         }
 
         /* Contact Section */
@@ -716,17 +453,6 @@
             font-weight: 300;
         }
 
-        /* Spotify Embed */
-        .spotify-embed {
-            max-width: 900px;
-            margin: 5rem auto 4rem;
-            padding: 0.75rem;
-            background: rgba(22, 22, 22, 0.55);
-            border: 1px solid rgba(139, 90, 60, 0.25);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .container { padding: 0 1.25rem; }
@@ -744,8 +470,6 @@
                 padding: 1.25rem 0 0.75rem;
                 text-align: left;
             }
-
-            .logo { font-size: 2.2rem; }
 
             .tagline {
                 letter-spacing: 0.25em;
@@ -765,25 +489,6 @@
 
             .hero { padding: 3.5rem 0 4.5rem; }
 
-            .hero h1 { margin-bottom: 1.5rem; }
-
-            .hero p {
-                margin-bottom: 2rem;
-                line-height: 1.75;
-            }
-
-            .cta-button {
-                width: 100%;
-                text-align: center;
-                padding: 1rem 1.25rem;
-            }
-
-            .music-section,
-            .services,
-            .contact { padding: 4rem 0; }
-
-            .services-grid { grid-template-columns: 1fr; }
-
             .music-links { gap: 1rem; }
 
             .music-link {
@@ -791,14 +496,6 @@
                 text-align: center;
                 padding: 0.9rem 1rem;
             }
-
-            .visualizer {
-                height: 100px;
-                margin: 3.5rem 0;
-                padding: 1.25rem;
-            }
-
-            .bar { width: 8px; }
 
             .spotify-embed {
                 margin: 3.5rem auto 3rem;
@@ -811,8 +508,6 @@
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 3.1rem; }
-
             .main-nav {
                 justify-content: flex-start;
                 overflow-x: auto;
@@ -822,18 +517,6 @@
 
             .main-nav::-webkit-scrollbar { display: none; }
             .main-nav { -ms-overflow-style: none; scrollbar-width: none; }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -854,7 +537,7 @@
             <div class="tagline">Funk • Cosmic Grooves • Analog Soul</div>
             <nav class="main-nav">
                 <a href="beats.html">Beats</a>
-                <a href="mixing-mastering.html">Mixing</a>
+                <a href="mixing-mastering.html">Mixing/Mastering</a>
                 <a href="songwriting.html">Songwriting</a>
                 <a href="studio.html">Studio</a>
             </nav>
@@ -904,7 +587,7 @@
         <!-- Service Selection Modal -->
         <div class="service-modal" id="serviceModal">
             <div class="modal-content">
-                <button class="modal-close" id="closeModal">&times;</button>
+                <button type="button" class="modal-close" id="closeModal">&times;</button>
                 <h3 class="modal-title">Select Service</h3>
                 
                 <div class="service-selection">
@@ -936,47 +619,30 @@
         </footer>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Popup modal functionality
-        const sendSignalBtn = document.getElementById('sendSignalBtn');
-        const serviceModal = document.getElementById('serviceModal');
-        const closeModal = document.getElementById('closeModal');
+        document.addEventListener('DOMContentLoaded', function() {
+            const sendSignalBtn = document.getElementById('sendSignalBtn');
+            const serviceModal = document.getElementById('serviceModal');
+            const closeModal = document.getElementById('closeModal');
 
-        sendSignalBtn.addEventListener('click', () => {
-            serviceModal.classList.add('active');
-        });
+            if (sendSignalBtn && serviceModal && closeModal) {
+                sendSignalBtn.addEventListener('click', function() {
+                    serviceModal.classList.add('active');
+                });
 
-        closeModal.addEventListener('click', () => {
-            serviceModal.classList.remove('active');
-        });
+                closeModal.addEventListener('click', function() {
+                    serviceModal.classList.remove('active');
+                });
 
-        // Close modal when clicking outside
-        serviceModal.addEventListener('click', (e) => {
-            if (e.target === serviceModal) {
-                serviceModal.classList.remove('active');
+                // Close modal when clicking outside
+                serviceModal.addEventListener('click', function(e) {
+                    if (e.target === serviceModal) {
+                        serviceModal.classList.remove('active');
+                    }
+                });
             }
         });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = do
+    </script>
+</body>
+</html>
