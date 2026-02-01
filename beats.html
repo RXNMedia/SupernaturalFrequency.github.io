@@ -383,21 +383,24 @@
 
             <div class="booking-form">
                 <h2 class="form-title">Request a Custom Beat</h2>
-                <form action="mailto:ivanreyes@rxnmedia.com" method="POST" enctype="text/plain">
+                <form action="https://formspree.io/f/mqelqenq" method="POST">
+                    <input type="hidden" name="_subject" value="New Beat Request - Supernatural Frequency">
+                    <input type="hidden" name="_cc" value="ivanreyes@rxnmedia.com">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name / Artist Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="Name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="Email" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="beat-type">Beat Type</label>
-                        <select id="beat-type" name="beat-type" required>
+                        <select id="beat-type" name="Beat Type" required>
                             <option value="">Select type...</option>
                             <option value="beat">Beat ($150)</option>
                             <option value="premium">Premium Beat ($250-500)</option>
@@ -407,27 +410,27 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="genre">Genre / Style</label>
-                            <input type="text" id="genre" name="genre" placeholder="e.g., Funk, Neo-Soul, Hip-Hop" required>
+                            <input type="text" id="genre" name="Genre" placeholder="e.g., Funk, Neo-Soul, Hip-Hop" required>
                         </div>
                         <div class="form-group">
                             <label for="bpm">BPM Preference (Optional)</label>
-                            <input type="text" id="bpm" name="bpm" placeholder="e.g., 90-100">
+                            <input type="text" id="bpm" name="BPM" placeholder="e.g., 90-100">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="references">Reference Tracks (Optional)</label>
-                        <textarea id="references" name="references" placeholder="Share links or describe the vibe you're going for..."></textarea>
+                        <textarea id="references" name="References" placeholder="Share links or describe the vibe you're going for..."></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="timeline">Timeline / Deadline</label>
-                        <input type="text" id="timeline" name="timeline" placeholder="e.g., 2 weeks, ASAP, flexible" required>
+                        <input type="text" id="timeline" name="Timeline" placeholder="e.g., 2 weeks, ASAP, flexible" required>
                     </div>
 
                     <div class="form-group">
                         <label for="additional">Additional Notes</label>
-                        <textarea id="additional" name="additional" placeholder="Any other details we should know..."></textarea>
+                        <textarea id="additional" name="Additional Notes" placeholder="Any other details we should know..."></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Send Request</button>

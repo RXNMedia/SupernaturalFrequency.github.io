@@ -327,21 +327,24 @@
 
             <div class="booking-form">
                 <h2 class="form-title">Book a Session</h2>
-                <form action="mailto:ivanreyes@rxnmedia.com" method="POST" enctype="text/plain" id="bookingForm">
+                <form action="https://formspree.io/f/mqelqenq" method="POST" id="bookingForm">
+                    <input type="hidden" name="_subject" value="New Studio Session Booking - Supernatural Frequency">
+                    <input type="hidden" name="_cc" value="ivanreyes@rxnmedia.com">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name / Artist Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="Name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="Email" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="duration">Session Duration</label>
-                        <select id="duration" name="duration" required>
+                        <select id="duration" name="Duration" required>
                             <option value="">Select duration...</option>
                             <option value="1">1 Hour ($20)</option>
                             <option value="2">2 Hours ($40)</option>
@@ -352,7 +355,7 @@
 
                     <div class="form-group">
                         <label for="day">Preferred Day</label>
-                        <select id="day" name="day" required disabled>
+                        <select id="day" name="Day" required disabled>
                             <option value="">Select duration first...</option>
                         </select>
                         <p class="helper-text" id="day-helper">Choose a duration to see available days</p>
@@ -360,7 +363,7 @@
 
                     <div class="form-group">
                         <label for="time">Start Time</label>
-                        <select id="time" name="time" required disabled>
+                        <select id="time" name="Start Time" required disabled>
                             <option value="">Select day first...</option>
                         </select>
                         <p class="helper-text" id="time-helper">Choose a day to see available times</p>
@@ -368,12 +371,12 @@
 
                     <div class="form-group">
                         <label for="project-type">Project Type</label>
-                        <input type="text" id="project-type" name="project-type" placeholder="e.g., Recording vocals, Full band session" required>
+                        <input type="text" id="project-type" name="Project Type" placeholder="e.g., Recording vocals, Full band session" required>
                     </div>
 
                     <div class="form-group">
                         <label for="additional">Additional Notes</label>
-                        <textarea id="additional" name="additional" placeholder="Any specific needs or equipment requests..."></textarea>
+                        <textarea id="additional" name="Additional Notes" placeholder="Any specific needs or equipment requests..."></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Send Booking Request</button>

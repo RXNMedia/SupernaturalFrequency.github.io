@@ -382,21 +382,24 @@
 
             <div class="booking-form">
                 <h2 class="form-title">Book Mixing/Mastering</h2>
-                <form action="mailto:ivanreyes@rxnmedia.com" method="POST" enctype="text/plain">
+                <form action="https://formspree.io/f/mqelqenq" method="POST">
+                    <input type="hidden" name="_subject" value="New Mixing/Mastering Request - Supernatural Frequency">
+                    <input type="hidden" name="_cc" value="ivanreyes@rxnmedia.com">
+                    
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name / Artist Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="Name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="Email" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="service">Service</label>
-                        <select id="service" name="service" required>
+                        <select id="service" name="Service" required>
                             <option value="">Select service...</option>
                             <option value="mixing">Mixing ($100)</option>
                             <option value="mastering">Mastering - Album ($250)</option>
@@ -407,27 +410,27 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="tracks">Number of Tracks</label>
-                            <input type="number" id="tracks" name="tracks" min="1" required>
+                            <input type="number" id="tracks" name="Number of Tracks" min="1" required>
                         </div>
                         <div class="form-group">
                             <label for="stems">Stems per Track (Approx.)</label>
-                            <input type="number" id="stems" name="stems" placeholder="e.g., 30">
+                            <input type="number" id="stems" name="Stems per Track" placeholder="e.g., 30">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="genre">Genre</label>
-                        <input type="text" id="genre" name="genre" placeholder="e.g., Funk, R&B, Hip-Hop" required>
+                        <input type="text" id="genre" name="Genre" placeholder="e.g., Funk, R&B, Hip-Hop" required>
                     </div>
 
                     <div class="form-group">
                         <label for="timeline">Timeline / Deadline</label>
-                        <input type="text" id="timeline" name="timeline" placeholder="e.g., 1 week, flexible" required>
+                        <input type="text" id="timeline" name="Timeline" placeholder="e.g., 1 week, flexible" required>
                     </div>
 
                     <div class="form-group">
                         <label for="additional">Additional Notes</label>
-                        <textarea id="additional" name="additional" placeholder="Reference tracks, specific requests, etc..."></textarea>
+                        <textarea id="additional" name="Additional Notes" placeholder="Reference tracks, specific requests, etc..."></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Send Request</button>
